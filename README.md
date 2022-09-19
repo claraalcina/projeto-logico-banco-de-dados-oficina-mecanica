@@ -42,7 +42,7 @@ SELECT Nome, CPF, Telefone, Modelo, idPedido
     ORDER BY Nome;
 ```
 
-#### NÚMERO DA ORDEM DE SERVIÇO, DATA DE EMISSÃO, STATUS DA ORDEM DE SERVIÇO POR VEÍCULO E NOME DO PROPRIETÁRIO
+#### NÚMERO DA ORDEM DE SERVIÇO, DATA DE EMISSÃO E STATUS DA ORDEM DE SERVIÇO POR VEÍCULO E NOME DO PROPRIETÁRIO
 ```sql
 SELECT A.Numero_OS, A.DataEmissao, A.Status_os, B.idPedido, C.Modelo, C.Marca, D.Nome, D.Telefone
 	FROM OrdemDeServico AS A
@@ -58,7 +58,7 @@ SELECT A.idPedido, C.NomePeca, C.ValorPeca, B.Quantidade
     INNER JOIN Pedido_Pecas AS B ON A.idPedido = B.Pedido_idPedido
     INNER JOIN Pecas AS C ON B.Pecas_idPecas = C.idPecas;
 ```
-#### SERVICOS E VALORES POR PEDIDO
+#### SERVIÇOS E VALORES POR PEDIDO
 ```sql
 SELECT A.idPedido, D.ServicoNome, D.ValorMaoDeObra
 	FROM Pedido AS A
@@ -74,10 +74,8 @@ SELECT COUNT(*) AS QtdPecas, idPedido
     INNER JOIN Pecas AS C ON B.Pecas_idPecas = C.idPecas) AS AA
     GROUP BY idPedido
     HAVING QtdPecas >= 2;
-    ```
-```sql
-
 ```
+
 
 #### VALOR TOTAL DO PEDIDO SOMANDO TODAS AS PEÇAS E MÃO DE OBRA
 ```sql
